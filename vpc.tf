@@ -1,11 +1,16 @@
-module "network" {
-  source  = "app.terraform.io/terraform-mencret-gcp/network/google"
-  version = "3.4.0"
+module "vpc" {
+    source  = "terraform-google-modules/network/google"
+    version = "3.4.0"
+    project_id    = var.project
+    network_name  = "mencret"
 
-  subnets = [
-  {
-    subnet_name   = "gaurav-subnet"
+subnets = [
+   {
+    subnet_name   = "berak-aer"
     subnet_ip     = "10.100.10.0/24"
     subnet_region = var.region
-  }
-]
+   }
+  ]
+}
+    
+
